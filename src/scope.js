@@ -48,7 +48,7 @@ Scope.prototype.$$digestOnce = function() {
         }
       }
     } catch (e) {
-      console.log(e);
+      console.error(e);
     }
   });
   return dirty;
@@ -61,7 +61,7 @@ Scope.prototype.$digest = function() {
   do {
     dirty = this.$$digestOnce();
     if (dirty && !(ttl--)) {
-      throw '10 digest iterations reaches';
+      throw '10 digest iterations reached';
     }
   } while (dirty);
 };
